@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="layout_inherit" inherit_id="website.layout" name="Lightsystem Layout Hooks">
+            <xpath expr="//div[@id='wrapwrap']" position="attributes">
+                <attribute name="class" add="o_lightsystem_site" separator=" "/>
+            </xpath>
+        </template>
+
+        <template id="header_brand_logo_inherit" inherit_id="website.option_header_brand_logo" name="Lightsystem Header Brand">
+            <xpath expr="//span[@t-field='website.logo']" position="replace">
+                <img src="/lightsystem_website/static/src/img/lightsystem_logo.svg"
+                     class="ls-site-logo"
+                     alt="lightsystem"
+                     width="143"
+                     height="28"/>
+            </xpath>
+            <xpath expr="//a[@data-name='Navbar Logo']" position="attributes">
+                <attribute name="title">lightsystem</attribute>
+                <attribute name="aria-label">lightsystem</attribute>
+            </xpath>
+        </template>
+
+        <template id="homepage_inherit" inherit_id="website.homepage" name="Lightsystem Homepage Content">
+            <xpath expr="//div[@id='wrap']" position="replace">
+                <div id="wrap" class="oe_structure">
+                    <t t-call="lightsystem_website.homepage_hero"/>
+                    <t t-call="lightsystem_website.homepage_services"/>
+                    <t t-call="lightsystem_website.homepage_process"/>
+                    <t t-call="lightsystem_website.homepage_foundation"/>
+                    <t t-call="lightsystem_website.homepage_contact"/>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="homepage_hero" name="Homepage Hero">
+            <section class="ls-section ls-hero">
+                <div class="container">
+                    <div class="ls-shell">
+                        <div class="row align-items-end g-4 g-xl-5">
+                            <div class="col-lg-7">
+                                <span class="ls-eyebrow">Custom tech for SMEs</span>
+                                <h1 class="ls-display mt-4 mb-4">I help SMEs scale with custom tech.</h1>
+                                <p class="ls-body-lg mb-0">
+                                    I design and build software, automations, and digital tools that remove operational bottlenecks,
+                                    support growth, and give small and medium-sized businesses systems that fit how they actually work.
+                                </p>
+                                <div class="ls-actions mt-4 pt-2">
+                                    <a href="/contactus" class="btn btn-primary">Discuss Your Business</a>
+                                    <a href="/#services" class="btn btn-secondary">How I Help</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="ls-card ls-card-featured">
+                                    <div class="ls-kicker">High-level focus</div>
+                                    <div class="ls-stack mt-4">
+                                        <div class="ls-stack__item">
+                                            <strong>Operational clarity</strong>
+                                            <span>Replace spreadsheets, repetitive manual work, and disconnected tools with systems that support growth.</span>
+                                        </div>
+                                        <div class="ls-stack__item">
+                                            <strong>Custom-fit software</strong>
+                                            <span>Build around your workflows instead of forcing the business to adapt to rigid off-the-shelf tooling.</span>
+                                        </div>
+                                        <div class="ls-stack__item">
+                                            <strong>Sustainable delivery</strong>
+                                            <span>Create a maintainable technical foundation that can evolve as the business gets more complex.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ls-proof-grid mt-5 pt-lg-4">
+                            <div class="ls-card ls-proof-card">
+                                <div class="ls-metric">Custom systems</div>
+                                <p>Internal tools, client-facing platforms, and business software tailored to how your company operates.</p>
+                            </div>
+                            <div class="ls-card ls-proof-card">
+                                <div class="ls-metric">Workflow automation</div>
+                                <p>Reduce repetitive work, improve consistency, and free up time for higher-value decisions.</p>
+                            </div>
+                            <div class="ls-card ls-proof-card">
+                                <div class="ls-metric">Scalable foundations</div>
+                                <p>Choose solutions that support the next stage of growth instead of creating more technical debt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="homepage_services" name="Homepage Services">
+            <section id="services" class="ls-section">
+                <div class="container">
+                    <div class="ls-section-heading">
+                        <span class="ls-eyebrow">How I help</span>
+                        <h2 class="ls-title">The homepage should quickly show where custom tech creates leverage for an SME.</h2>
+                        <p class="ls-body">
+                            This first pass stays intentionally high level. It introduces the business outcomes, the types of
+                            technical interventions you offer, and the direction a visitor can explore next.
+                        </p>
+                    </div>
+                    <div class="ls-card-grid">
+                        <article class="ls-card">
+                            <div class="ls-kicker ls-kicker-blue">Systems</div>
+                            <h3>Custom business software</h3>
+                            <p>Design tools around your operations, team workflows, and reporting needs instead of compromising around generic products.</p>
+                        </article>
+                        <article class="ls-card">
+                            <div class="ls-kicker ls-kicker-pink">Automation</div>
+                            <h3>Smarter workflows</h3>
+                            <p>Automate repetitive tasks, reduce handoffs, and make critical processes more reliable as the business grows.</p>
+                        </article>
+                        <article class="ls-card">
+                            <div class="ls-kicker ls-kicker-red">Integration</div>
+                            <h3>Connected operations</h3>
+                            <p>Bridge the gaps between tools, data, and teams so the company runs with fewer bottlenecks and less duplication.</p>
+                        </article>
+                        <article class="ls-card">
+                            <div class="ls-kicker">Advisory</div>
+                            <h3>Technology decisions with business context</h3>
+                            <p>Choose what to build, what to buy, and how to sequence delivery based on practical business constraints.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="homepage_process" name="Homepage Process">
+            <section id="process" class="ls-section ls-section-muted">
+                <div class="container">
+                    <div class="row g-4 align-items-start">
+                        <div class="col-lg-4">
+                            <span class="ls-eyebrow">Approach</span>
+                            <h2 class="ls-title">Growth usually needs better systems before it needs more complexity.</h2>
+                            <p class="ls-body mb-0">
+                                The homepage introduces a simple way to think about the work: understand where growth is blocked,
+                                build the right technical support, and keep improving from there.
+                            </p>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="ls-process">
+                                <article class="ls-card ls-process__step">
+                                    <div class="ls-kicker ls-kicker-blue">01 Diagnose</div>
+                                    <h3>Find the constraint</h3>
+                                    <p>Identify the workflow, data, or delivery problem that is limiting efficiency, visibility, or scale.</p>
+                                </article>
+                                <article class="ls-card ls-process__step">
+                                    <div class="ls-kicker ls-kicker-pink">02 Build</div>
+                                    <h3>Create the right system</h3>
+                                    <p>Implement custom software, automation, or integration work that addresses the real operating need.</p>
+                                </article>
+                                <article class="ls-card ls-process__step">
+                                    <div class="ls-kicker ls-kicker-red">03 Scale</div>
+                                    <h3>Support the next stage</h3>
+                                    <p>Iterate on the foundation so the business can grow without processes becoming slower or more fragile.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="homepage_foundation" name="Homepage Foundation">
+            <section class="ls-section">
+                <div class="container">
+                    <div class="row g-4 g-xl-5 align-items-start">
+                        <div class="col-lg-6">
+                            <div class="ls-card ls-card-code">
+                                <div class="ls-kicker">Value proposition</div>
+                                <div class="ls-code-line">who: <span>SMEs with growth bottlenecks</span></div>
+                                <div class="ls-code-line">what: <span>custom software, automation, integration</span></div>
+                                <div class="ls-code-line">why: <span>better leverage, less friction, more scale</span></div>
+                                <div class="ls-code-line">how: <span>practical delivery grounded in business needs</span></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" id="about">
+                            <span class="ls-eyebrow">Why this matters</span>
+                            <h2 class="ls-title">SMEs often outgrow generic tools before they are ready for enterprise-scale overhead.</h2>
+                            <p class="ls-body">
+                                That gap is where custom tech can create real leverage. The right system can improve delivery,
+                                reporting, coordination, and client experience without adding unnecessary complexity.
+                            </p>
+                            <p class="ls-body mb-0">
+                                The homepage’s job is to make that idea immediately legible: you help growing businesses scale with
+                                software that is shaped around the way they operate.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="homepage_contact" name="Homepage Contact">
+            <section id="contact" class="ls-section">
+                <div class="container">
+                    <div class="ls-card ls-cta-panel">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-8">
+                                <span class="ls-eyebrow">Contact</span>
+                                <h2 class="ls-title mb-3">If your business is growing faster than your systems, that is usually the right moment to talk.</h2>
+                                <p class="ls-body mb-0">
+                                    Use the contact page to describe your business, current bottlenecks, and the kind of technical
+                                    support you think you need. From there, the site can grow into more detailed service and case-study pages.
+                                </p>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="ls-actions ls-actions-vertical">
+                                    <a href="/contactus" class="btn btn-primary">Start the Conversation</a>
+                                    <a t-if="res_company.email" t-att-href="'mailto:%s' % res_company.email" class="btn btn-secondary">
+                                        <t t-out="res_company.email"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="contact_page" name="Lightsystem Contact Page">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Contact</t>
+                <t t-set="logged_partner" t-value="request.env['website.visitor']._get_visitor_from_request().partner_id"/>
+                <t t-set="contact_form_values" t-value="{
+                    'email_to': res_company.email,
+                    'name': request.params.get('name', ''),
+                    'phone': request.params.get('phone', ''),
+                    'email_from': request.params.get('email_from', ''),
+                    'company': request.params.get('company', ''),
+                    'subject': request.params.get('subject', 'Freelance website project inquiry'),
+                }"/>
+                <span class="d-none" data-for="lightsystem_contact_form" t-att-data-values="contact_form_values"/>
+                <div id="wrap" class="oe_structure">
+                    <section class="ls-section ls-contact-page">
+                        <div class="container">
+                            <div class="row g-4 g-xl-5 align-items-start">
+                                <div class="col-lg-5">
+                                    <span class="ls-eyebrow">Start a conversation</span>
+                                    <h1 class="ls-title ls-title-page">Tell me about the website you need.</h1>
+                                    <p class="ls-body">
+                                        Share your offer, audience, and what is not working in the current site. That is enough to
+                                        start shaping the right homepage, landing pages, and conversion flow.
+                                    </p>
+                                    <div class="ls-card ls-contact-card mt-4">
+                                        <div class="ls-kicker">Contact details</div>
+                                        <ul class="ls-contact-list">
+                                            <li>
+                                                <span>Company</span>
+                                                <strong><t t-out="res_company.name"/></strong>
+                                            </li>
+                                            <li t-if="res_company.email">
+                                                <span>Email</span>
+                                                <a t-att-href="'mailto:%s' % res_company.email"><t t-out="res_company.email"/></a>
+                                            </li>
+                                            <li t-if="res_company.phone">
+                                                <span>Phone</span>
+                                                <a t-att-href="'tel:%s' % res_company.phone"><t t-out="res_company.phone"/></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <section class="s_website_form ls-card ls-form-card" data-snippet="s_website_form" data-name="Contact Form">
+                                        <form id="lightsystem_contact_form" action="/website/form/" method="post" enctype="multipart/form-data"
+                                              class="o_mark_required" data-mark="*" data-model_name="mail.mail"
+                                              data-success-mode="redirect" data-success-page="/contact/thanks" data-pre-fill="true">
+                                            <div class="row g-3 s_website_form_rows">
+                                                <div class="col-md-6 s_website_form_field s_website_form_custom s_website_form_required" data-type="char" data-name="name">
+                                                    <label class="s_website_form_label" for="ls_contact_name">
+                                                        <span class="s_website_form_label_content">Name</span>
+                                                        <span class="s_website_form_mark"> *</span>
+                                                    </label>
+                                                    <input id="ls_contact_name" type="text" class="form-control s_website_form_input" name="name" required="" data-fill-with="name"/>
+                                                </div>
+                                                <div class="col-md-6 s_website_form_field s_website_form_required s_website_form_model_required" data-type="email" data-name="email_from">
+                                                    <label class="s_website_form_label" for="ls_contact_email">
+                                                        <span class="s_website_form_label_content">Email</span>
+                                                        <span class="s_website_form_mark"> *</span>
+                                                    </label>
+                                                    <input id="ls_contact_email" type="email" class="form-control s_website_form_input" name="email_from" required="" data-fill-with="email"/>
+                                                </div>
+                                                <div class="col-md-6 s_website_form_field s_website_form_custom" data-type="char" data-name="company">
+                                                    <label class="s_website_form_label" for="ls_contact_company">
+                                                        <span class="s_website_form_label_content">Company</span>
+                                                    </label>
+                                                    <input id="ls_contact_company" type="text" class="form-control s_website_form_input" name="company" data-fill-with="commercial_company_name"/>
+                                                </div>
+                                                <div class="col-md-6 s_website_form_field s_website_form_custom" data-type="char" data-name="phone">
+                                                    <label class="s_website_form_label" for="ls_contact_phone">
+                                                        <span class="s_website_form_label_content">Phone</span>
+                                                    </label>
+                                                    <input id="ls_contact_phone" type="tel" class="form-control s_website_form_input" name="phone" data-fill-with="phone"/>
+                                                </div>
+                                                <div class="col-12 s_website_form_field s_website_form_required s_website_form_model_required" data-type="char" data-name="subject">
+                                                    <label class="s_website_form_label" for="ls_contact_subject">
+                                                        <span class="s_website_form_label_content">Project focus</span>
+                                                        <span class="s_website_form_mark"> *</span>
+                                                    </label>
+                                                    <input id="ls_contact_subject" type="text" class="form-control s_website_form_input" name="subject" required="" placeholder="Example: Freelancer homepage and service landing pages"/>
+                                                </div>
+                                                <div class="col-12 s_website_form_field s_website_form_custom s_website_form_required" data-type="text" data-name="description">
+                                                    <label class="s_website_form_label" for="ls_contact_description">
+                                                        <span class="s_website_form_label_content">Brief</span>
+                                                        <span class="s_website_form_mark"> *</span>
+                                                    </label>
+                                                    <textarea id="ls_contact_description" class="form-control s_website_form_input" name="description" required="" rows="7"
+                                                              placeholder="Describe your offer, target client, current website, and timeline."></textarea>
+                                                </div>
+                                                <div class="s_website_form_field s_website_form_dnone">
+                                                    <input type="hidden" class="s_website_form_input" name="email_to" t-att-value="res_company.email or ''"/>
+                                                </div>
+                                                <div class="col-12 s_website_form_submit">
+                                                    <a href="#" role="button" class="btn btn-primary s_website_form_send">Send Inquiry</a>
+                                                    <span id="s_website_form_result"/>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <template id="contact_thanks" name="Lightsystem Contact Thanks">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Thanks</t>
+                <div id="wrap" class="oe_structure">
+                    <section class="ls-section">
+                        <div class="container">
+                            <div class="ls-card ls-thanks-card">
+                                <span class="ls-eyebrow">Message sent</span>
+                                <h1 class="ls-title ls-title-page">Thanks. I will review the inquiry and get back to you shortly.</h1>
+                                <p class="ls-body">
+                                    If the project is time-sensitive, use the company email below as well so nothing gets stuck in transit.
+                                </p>
+                                <div class="ls-actions mt-4">
+                                    <a href="/" class="btn btn-primary">Back to Homepage</a>
+                                    <a t-if="res_company.email" t-att-href="'mailto:%s' % res_company.email" class="btn btn-secondary">
+                                        <t t-out="res_company.email"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <template id="footer_custom_inherit" inherit_id="website.footer_custom" name="Lightsystem Footer">
+            <xpath expr="//div[@id='footer']" position="replace">
+                <div id="footer" class="text-break" t-ignore="true" t-if="not no_footer">
+                    <section class="ls-footer">
+                        <div class="container">
+                            <div class="row g-4">
+                                <div class="col-lg-5">
+                                    <span class="ls-eyebrow">Lightsystem</span>
+                                    <h2 class="ls-footer__title">Freelance Odoo websites with a cleaner technical path.</h2>
+                                    <p class="ls-footer__body mb-0">
+                                        Built for service positioning, lead generation, and long-term maintainability inside the Odoo website stack.
+                                    </p>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="ls-footer__label">Navigation</div>
+                                    <ul class="ls-footer__links">
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/#services">Services</a></li>
+                                        <li><a href="/#process">Process</a></li>
+                                        <li><a href="/#about">About</a></li>
+                                        <li><a href="/contactus">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <div class="ls-footer__label">Contact</div>
+                                    <ul class="ls-footer__links">
+                                        <li><span><t t-out="res_company.name"/></span></li>
+                                        <li t-if="res_company.email"><a t-att-href="'mailto:%s' % res_company.email"><t t-out="res_company.email"/></a></li>
+                                        <li t-if="res_company.phone"><a t-att-href="'tel:%s' % res_company.phone"><t t-out="res_company.phone"/></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </xpath>
+        </template>
+
+        <record id="website.homepage_page" model="website.page">
+            <field name="website_meta_title">I help SMEs scale with custom tech</field>
+            <field name="website_meta_description">Custom software, automation, and systems for SMEs that need better tools to scale with less friction.</field>
+        </record>
+
+        <record id="website.contactus_page" model="website.page">
+            <field name="view_id" ref="lightsystem_website.contact_page"/>
+            <field name="website_meta_title">Contact</field>
+            <field name="website_meta_description">Describe your website project, current constraints, and service offer to start planning the right Odoo website implementation.</field>
+        </record>
+
+        <record id="contact_thanks_page" model="website.page">
+            <field name="name">Thanks</field>
+            <field name="type">qweb</field>
+            <field name="url">/contact/thanks</field>
+            <field name="website_indexed" eval="False"/>
+            <field name="is_published">True</field>
+            <field name="view_id" ref="lightsystem_website.contact_thanks"/>
+        </record>
+
+        <record id="website.menu_home" model="website.menu">
+            <field name="sequence" eval="5"/>
+        </record>
+
+        <record id="menu_services" model="website.menu">
+            <field name="name">How I Help</field>
+            <field name="url">/#services</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" eval="20"/>
+        </record>
+
+        <record id="menu_process" model="website.menu">
+            <field name="name">Approach</field>
+            <field name="url">/#process</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" eval="30"/>
+        </record>
+
+        <record id="menu_about" model="website.menu">
+            <field name="name">Why It Matters</field>
+            <field name="url">/#about</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" eval="40"/>
+        </record>
+
+        <record id="website.menu_contactus" model="website.menu">
+            <field name="name">Contact</field>
+            <field name="url">/contactus</field>
+            <field name="page_id" ref="website.contactus_page"/>
+            <field name="sequence" eval="50"/>
+        </record>
+    </data>
+</odoo>
