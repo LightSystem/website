@@ -1,0 +1,447 @@
+// ============================================================
+// LightSystem Website — Vercel-Inspired Theme
+// Custom Styles
+// ============================================================
+
+$geist-mono-font-stack: map-get(map-get($o-theme-font-configs, 'Geist Mono'), 'family');
+
+// ------------------------------------------------------------
+// CSS Custom Properties (design tokens)
+// ------------------------------------------------------------
+:root {
+    // Neutrals
+    --ls-black:     #171717;
+    --ls-white:     #ffffff;
+    --ls-gray-600:  #4d4d4d;
+    --ls-gray-500:  #666666;
+    --ls-gray-400:  #808080;
+    --ls-gray-100:  #ebebeb;
+    --ls-gray-50:   #fafafa;
+
+    // Interactive
+    --ls-link:      #0072f5;
+    --ls-focus:     hsla(212, 100%, 48%, 1);
+
+    // Workflow accents (use only in workflow pipeline context)
+    --ls-develop:   #0a72ef;
+    --ls-preview:   #de1d8d;
+    --ls-ship:      #ff5b4f;
+
+    // Badge
+    --ls-badge-bg:   #ebf5ff;
+    --ls-badge-text: #0068d6;
+
+    // Shadow system (shadow-as-border technique)
+    --ls-shadow-border: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    --ls-shadow-ring:   rgb(235, 235, 235) 0px 0px 0px 1px;
+    --ls-shadow-card:   rgba(0, 0, 0, 0.08) 0px 0px 0px 1px,
+                        rgba(0, 0, 0, 0.04) 0px 2px 2px,
+                        rgba(0, 0, 0, 0.04) 0px 8px 8px -8px,
+                        #fafafa 0px 0px 0px 1px;
+    --ls-shadow-subtle: rgba(0, 0, 0, 0.04) 0px 2px 2px;
+}
+
+// ------------------------------------------------------------
+// Base
+// ------------------------------------------------------------
+body {
+    font-feature-settings: "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: hsla(0, 0%, 95%, 1);
+    color: var(--ls-black);
+}
+
+// ------------------------------------------------------------
+// Typography — compressed letter-spacing at display sizes
+// ------------------------------------------------------------
+h1, .h1 {
+    letter-spacing: -2.4px;
+    line-height: 1.1;
+    color: var(--ls-black);
+}
+
+h2, .h2 {
+    letter-spacing: -2.4px;
+    line-height: 1.2;
+    color: var(--ls-black);
+}
+
+h3, .h3 {
+    letter-spacing: -1.28px;
+    line-height: 1.25;
+    color: var(--ls-black);
+}
+
+h4, .h4 {
+    letter-spacing: -0.96px;
+    line-height: 1.33;
+    color: var(--ls-black);
+}
+
+h5, .h5 {
+    line-height: 1.8;
+    color: var(--ls-black);
+}
+
+h6, .h6 {
+    letter-spacing: -0.32px;
+    line-height: 1.5;
+    color: var(--ls-black);
+}
+
+// Lead / introductory copy
+.lead {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--ls-gray-600);
+}
+
+// Muted / description text
+.text-muted,
+.o_description {
+    color: var(--ls-gray-600) !important;
+}
+
+// ------------------------------------------------------------
+// Links
+// ------------------------------------------------------------
+a:focus-visible {
+    outline: 2px solid var(--ls-focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+// ------------------------------------------------------------
+// Navigation
+// ------------------------------------------------------------
+header,
+.o_main_navbar {
+    background: var(--ls-white);
+    box-shadow: var(--ls-shadow-border);
+
+    .nav-link {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--ls-black);
+
+        &:hover,
+        &:focus {
+            color: var(--ls-black);
+            opacity: 0.7;
+        }
+
+        &.active {
+            font-weight: 600;
+        }
+    }
+}
+
+// ------------------------------------------------------------
+// Buttons
+// ------------------------------------------------------------
+.btn {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.43;
+    transition: background 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+
+    &:focus-visible {
+        outline: 2px solid var(--ls-focus);
+        outline-offset: 2px;
+    }
+}
+
+// Primary — dark fill
+.btn-primary {
+    background: var(--ls-black);
+    color: var(--ls-white);
+    border: none;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+        background: #333333;
+        color: var(--ls-white);
+        box-shadow: none;
+    }
+
+    &:active {
+        background: #000000;
+    }
+}
+
+// Secondary — white with shadow-border
+.btn-secondary,
+.btn-light {
+    background: var(--ls-white);
+    color: var(--ls-black);
+    border: none;
+    box-shadow: var(--ls-shadow-ring);
+
+    &:hover,
+    &:focus {
+        background: var(--ls-black);
+        color: var(--ls-white);
+        box-shadow: none;
+    }
+}
+
+// ------------------------------------------------------------
+// Cards — shadow-as-border, no CSS border
+// ------------------------------------------------------------
+.card {
+    border: none !important;
+    box-shadow: var(--ls-shadow-card);
+    border-radius: 8px;
+    background: var(--ls-white);
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 0px 1px,
+                    rgba(0, 0, 0, 0.06) 0px 2px 4px,
+                    rgba(0, 0, 0, 0.06) 0px 8px 8px -8px,
+                    #fafafa 0px 0px 0px 1px;
+    }
+}
+
+.card-img-top {
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid var(--ls-gray-100);
+}
+
+// ------------------------------------------------------------
+// Sections
+// ------------------------------------------------------------
+.o_editable_body section,
+section.s_text_block,
+section.s_three_columns,
+section.s_features,
+section.s_comparisons,
+section.s_references,
+section.s_quotes_carousel {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+@media (max-width: 767.98px) {
+    .o_editable_body section,
+    section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+// Hero section
+.s_hero,
+.o_homepage_cover {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    text-align: center;
+
+    h1 {
+        margin-bottom: 1.5rem;
+    }
+
+    .lead {
+        margin-bottom: 2rem;
+    }
+
+    @media (max-width: 767.98px) {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+
+        h1 {
+            font-size: 2rem;
+            letter-spacing: -1.28px;
+        }
+    }
+}
+
+// Section dividers
+section + section {
+    border-top: 1px solid rgba(235, 235, 235, 0.8);
+}
+
+// Container max-width
+.container,
+.container-lg,
+.container-xl {
+    max-width: 1200px;
+}
+
+// ------------------------------------------------------------
+// Badges / Pills
+// ------------------------------------------------------------
+.badge,
+.o_badge {
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0 0.625rem;
+    line-height: 1.75;
+}
+
+.badge-primary,
+.o_badge_primary {
+    background: var(--ls-badge-bg);
+    color: var(--ls-badge-text);
+}
+
+// ------------------------------------------------------------
+// Monospace / Code
+// ------------------------------------------------------------
+code,
+pre,
+kbd,
+samp {
+    font-family: $geist-mono-font-stack;
+    font-feature-settings: "liga" 1;
+}
+
+code {
+    font-size: 0.875rem;
+    padding: 0.1em 0.3em;
+    background: var(--ls-gray-50);
+    box-shadow: var(--ls-shadow-border);
+    color: var(--ls-black);
+    border-radius: 2px;
+}
+
+// ------------------------------------------------------------
+// Forms
+// ------------------------------------------------------------
+.form-control,
+.form-select {
+    border: none;
+    box-shadow: var(--ls-shadow-border);
+    border-radius: 6px;
+    color: var(--ls-black);
+    background: var(--ls-white);
+
+    &::placeholder {
+        color: var(--ls-gray-400);
+    }
+
+    &:focus {
+        box-shadow: var(--ls-shadow-border), 0 0 0 2px rgba(0, 114, 245, 0.3);
+        outline: none;
+        background: var(--ls-white);
+    }
+}
+
+// ------------------------------------------------------------
+// Dropdown menus
+// ------------------------------------------------------------
+.dropdown-menu {
+    border: none;
+    box-shadow: var(--ls-shadow-card);
+    border-radius: 8px;
+    background: var(--ls-white);
+
+    .dropdown-item {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--ls-black);
+
+        &:hover,
+        &:focus {
+            background: var(--ls-gray-50);
+            color: var(--ls-black);
+        }
+    }
+}
+
+// ------------------------------------------------------------
+// Tables
+// ------------------------------------------------------------
+.table {
+    border-color: var(--ls-gray-100);
+
+    th {
+        font-weight: 500;
+        color: var(--ls-black);
+        font-size: 0.875rem;
+    }
+
+    td {
+        color: var(--ls-gray-600);
+        font-size: 0.875rem;
+    }
+}
+
+// ------------------------------------------------------------
+// Images (product screenshots)
+// ------------------------------------------------------------
+.o_we_image_bordered,
+figure img {
+    box-shadow: var(--ls-shadow-ring);
+    border-radius: 12px 12px 0 0;
+}
+
+// ------------------------------------------------------------
+// Metric / number display
+// ------------------------------------------------------------
+.o_metric,
+.s_metric_number {
+    font-feature-settings: "tnum" 1;
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -2.4px;
+    line-height: 1.1;
+    color: var(--ls-black);
+}
+
+// ------------------------------------------------------------
+// Workflow accent classes (use only in pipeline context)
+// ------------------------------------------------------------
+.o_develop { color: var(--ls-develop); }
+.o_preview  { color: var(--ls-preview); }
+.o_ship     { color: var(--ls-ship); }
+
+%o-workflow-label {
+    font-family: $geist-mono-font-stack;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.o_develop_label { @extend %o-workflow-label; color: var(--ls-develop); }
+.o_preview_label  { @extend %o-workflow-label; color: var(--ls-preview); }
+.o_ship_label     { @extend %o-workflow-label; color: var(--ls-ship); }
+
+// ------------------------------------------------------------
+// Focus ring — consistency across all interactive elements
+// ------------------------------------------------------------
+:not(a):focus-visible {
+    outline: 2px solid var(--ls-focus);
+    outline-offset: 2px;
+}
+
+// ------------------------------------------------------------
+// Footer
+// ------------------------------------------------------------
+footer,
+#footer {
+    background: var(--ls-white);
+    border-top: 1px solid var(--ls-gray-100);
+
+    a {
+        color: var(--ls-gray-600);
+        text-decoration: none;
+        font-size: 0.875rem;
+
+        &:hover {
+            color: var(--ls-black);
+        }
+    }
+
+    .o_footer_copyright {
+        font-size: 0.75rem;
+        color: var(--ls-gray-500);
+    }
+}
