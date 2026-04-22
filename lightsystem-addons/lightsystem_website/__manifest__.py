@@ -4,6 +4,10 @@
     'author': 'João Horta Alves',
     'license': 'LGPL-3',
     'depends': ['website'],
+    'data': [
+        'data/website_data.xml',
+        'views/website_templates.xml',
+    ],
     'installable': True,
     'application': False,
     'assets': {

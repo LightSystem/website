@@ -124,6 +124,16 @@ header,
     background: var(--ls-white);
     box-shadow: var(--ls-shadow-border);
 
+    // Navbar placeholder snippets (Contact CTA, text element, etc.) render as
+    // <li><div class="oe_structure"><section class="s_text_block"><div class="container">.
+    // Strip their vertical padding so they don't inflate navbar height.
+    .navbar-nav .oe_structure {
+        section,
+        .container {
+            padding-block: 0 !important;
+        }
+    }
+
     .nav-link {
         font-size: 0.875rem;
         font-weight: 500;
