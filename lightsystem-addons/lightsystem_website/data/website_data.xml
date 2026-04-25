@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <delete id="website.menu_contactus" model="website.menu"/>
+
     <record id="website.default_website" model="website">
+        <field name="name">lightsystem</field>
         <field name="logo" type="base64" file="lightsystem_website/static/src/img/lightsystem_logo.svg"/>
+        <field name="social_github">https://github.com/LightSystem</field>
+        <field name="social_linkedin">https://www.linkedin.com/in/lightsystem</field>
     </record>
 </odoo>
