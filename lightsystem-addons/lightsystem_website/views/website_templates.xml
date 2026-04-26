@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <template id="template_header_default" inherit_id="website.template_header_default">
+        <xpath expr="//t[@t-call='website.placeholder_header_text_element']" position="replace"/>
+        <xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="replace"/>
+        <xpath expr="//t[@t-call='portal.user_dropdown']" position="replace"/>
+    </template>
+
+    <template id="template_header_mobile" inherit_id="website.template_header_mobile">
+        <xpath expr="//t[@t-call='website.placeholder_header_text_element']" position="replace"/>
+        <xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="replace"/>
+        <xpath expr="//t[@t-call='portal.user_dropdown']" position="replace"/>
+    </template>
+
     <template id="footer_custom" inherit_id="website.footer_custom">
         <xpath expr="//section[@data-name='Container']" position="attributes">
             <attribute name="class" add="pt16" remove="pt40" separator=" "/>
+        </xpath>
+        <xpath expr="//div[h5[normalize-space()='Useful Links']]" position="replace"/>
+        <xpath expr="//div[h5[normalize-space()='About us']]" position="replace"/>
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]" position="attributes">
+            <attribute name="class">col-lg-4 pt24 pb24 mx-auto text-center</attribute>
+        </xpath>
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]//li[a[starts-with(@href, 'mailto:')]]" position="replace">
+            <li><i class="fa fa-envelope fa-fw me-2"/><a href="mailto:contact@lightsystem.com">contact@lightsystem.com</a></li>
+        </xpath>
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]//li[a[starts-with(@href, 'tel:')]]" position="replace"/>
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]//a[@href='/website/social/facebook']" position="replace"/>
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]//a[@href='/website/social/twitter']" position="replace">
+            <a href="/website/social/github" class="s_social_media_github" target="_blank" aria-label="GitHub">
+                <i class="fa fa-github rounded-circle shadow-sm o_editable_media"/>
+            </a>
+        </xpath>
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]//div[hasclass('s_social_media')]" position="attributes">
+            <attribute name="class">s_social_media text-center o_not_editable</attribute>
         </xpath>
     </template>
 </odoo>
