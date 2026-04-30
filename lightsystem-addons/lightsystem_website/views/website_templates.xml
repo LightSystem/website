@@ -4,12 +4,22 @@
         <xpath expr="//t[@t-call='website.placeholder_header_text_element']" position="replace"/>
         <xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="replace"/>
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="replace"/>
+        <xpath expr="//t[@t-call='website.placeholder_header_call_to_action']" position="replace">
+            <li class="nav-item">
+                <a href="/contactus" class="btn btn-primary px-3 rounded-pill">Contact Us</a>
+            </li>
+        </xpath>
     </template>
 
     <template id="template_header_mobile" inherit_id="website.template_header_mobile">
         <xpath expr="//t[@t-call='website.placeholder_header_text_element']" position="replace"/>
         <xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="replace"/>
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="replace"/>
+        <xpath expr="//t[@t-call='website.header_call_to_action_large']" position="replace">
+            <div class="mt-2 text-center">
+                <a href="/contactus" class="btn btn-primary w-100 rounded-pill">Contact Us</a>
+            </div>
+        </xpath>
     </template>
 
     <template id="footer_custom" inherit_id="website.footer_custom">
@@ -33,6 +43,123 @@
         </xpath>
         <xpath expr="//div[h5[normalize-space()='Connect with us']]//div[hasclass('s_social_media')]" position="attributes">
             <attribute name="class">s_social_media text-center o_not_editable</attribute>
+        </xpath>
+    </template>
+
+    <template id="homepage" inherit_id="website.homepage" name="lightsystem Home">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="oe_structure">
+                <section class="s_hero">
+                    <div class="container">
+                        <h1>Let’s unblock your business</h1>
+                        <p class="lead mx-auto" style="max-width: 720px;">
+                            The platform for developers that provides the speed and reliability 
+                            needed to create at the pace of inspiration.
+                        </p>
+                        <div class="d-flex justify-content-center gap-3 mt-4">
+                            <a href="/contactus" class="btn btn-primary btn-lg px-4 rounded-pill">Get Started</a>
+                            <a href="#" class="btn btn-secondary btn-lg px-4 rounded-pill">Documentation</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="s_references pt-0 pb-5">
+                    <div class="container border-bottom border-light pb-5">
+                        <div class="row align-items-center justify-content-center g-5">
+                            <div class="col-4 col-md-2 text-center">
+                                <span class="h5 text-muted mb-0" style="letter-spacing: 2px; font-weight: 500;">ACME</span>
+                            </div>
+                            <div class="col-4 col-md-2 text-center">
+                                <span class="h5 text-muted mb-0" style="letter-spacing: 2px; font-weight: 500;">GLOBEX</span>
+                            </div>
+                            <div class="col-4 col-md-2 text-center">
+                                <span class="h5 text-muted mb-0" style="letter-spacing: 2px; font-weight: 500;">SOYLENT</span>
+                            </div>
+                            <div class="col-4 col-md-2 text-center">
+                                <span class="h5 text-muted mb-0" style="letter-spacing: 2px; font-weight: 500;">INITECH</span>
+                            </div>
+                            <div class="col-4 col-md-2 text-center">
+                                <span class="h5 text-muted mb-0" style="letter-spacing: 2px; font-weight: 500;">UMBRELLA</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="s_text_block">
+                    <div class="container">
+                        <div class="row g-5 text-center">
+                            <div class="col-lg-4">
+                                <div class="o_develop_label mb-3">Develop</div>
+                                <h3>Build with velocity</h3>
+                                <p class="text-muted">
+                                    Your environment, optimized. Focus on writing code while we 
+                                    handle the infrastructure complexities.
+                                </p>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="o_preview_label mb-3">Preview</div>
+                                <h3>Iterate in public</h3>
+                                <p class="text-muted">
+                                    Every push is a link. Share your progress instantly with 
+                                    stakeholders and gather feedback faster.
+                                </p>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="o_ship_label mb-3">Ship</div>
+                                <h3>Global by default</h3>
+                                <p class="text-muted">
+                                    Deploy to the edge. Reach your users with 
+                                    unparalleled performance, anywhere in the world.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="s_features bg-light">
+                    <div class="container">
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="card h-100 p-5">
+                                    <div class="o_metric mb-3">10x</div>
+                                    <h4 class="mb-3">Faster Cycles</h4>
+                                    <p class="text-muted mb-0">
+                                        Reduce your time to market with our automated 
+                                        deployment pipelines and optimized workflows.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card h-100 p-5">
+                                    <div class="o_metric mb-3">99.9%</div>
+                                    <h4 class="mb-3">Uptime</h4>
+                                    <p class="text-muted mb-0">
+                                        Enterprise-grade reliability that grows with you. 
+                                        Your business never sleeps, and neither do we.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card h-100 p-5">
+                                    <div class="o_metric mb-3">0</div>
+                                    <h4 class="mb-3">Config</h4>
+                                    <p class="text-muted mb-0">
+                                        Zero-configuration deployments. Just push your code 
+                                        and we'll handle the rest, from SSL to CDN.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="s_text_block py-5">
+                    <div class="container text-center py-5">
+                        <h2 class="mb-4">Ready to unlock your potential?</h2>
+                        <a href="/contactus" class="btn btn-primary btn-lg px-5 rounded-pill">Start Building Now</a>
+                    </div>
+                </section>
+            </div>
         </xpath>
     </template>
 </odoo>
