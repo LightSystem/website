@@ -4,12 +4,22 @@
         <xpath expr="//t[@t-call='website.placeholder_header_text_element']" position="replace"/>
         <xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="replace"/>
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="replace"/>
+        <xpath expr="//t[@t-call='website.placeholder_header_call_to_action']" position="replace">
+            <li class="nav-item">
+                <a href="/contactus" class="btn btn-primary px-3 rounded-pill">Contact Us</a>
+            </li>
+        </xpath>
     </template>
 
     <template id="template_header_mobile" inherit_id="website.template_header_mobile">
         <xpath expr="//t[@t-call='website.placeholder_header_text_element']" position="replace"/>
         <xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="replace"/>
         <xpath expr="//t[@t-call='portal.user_dropdown']" position="replace"/>
+        <xpath expr="//t[@t-call='website.header_call_to_action_large']" position="replace">
+            <div class="mt-2 text-center">
+                <a href="/contactus" class="btn btn-primary w-100 rounded-pill">Contact Us</a>
+            </div>
+        </xpath>
     </template>
 
     <template id="footer_custom" inherit_id="website.footer_custom">
@@ -21,18 +31,136 @@
         <xpath expr="//div[h5[normalize-space()='Connect with us']]" position="attributes">
             <attribute name="class">col-lg-4 pt24 pb24 mx-auto text-center</attribute>
         </xpath>
-        <xpath expr="//div[h5[normalize-space()='Connect with us']]//li[a[starts-with(@href, 'mailto:')]]" position="replace">
-            <li><i class="fa fa-envelope fa-fw me-2"/><a href="mailto:contact@lightsystem.com">contact@lightsystem.com</a></li>
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]//li[a[starts-with(@href, 'mailto:')]]"
+               position="replace">
+            <li>
+                <i class="fa fa-envelope fa-fw me-2"/>
+                <a href="mailto:contact@lightsystem.com">contact@lightsystem.com</a>
+            </li>
         </xpath>
-        <xpath expr="//div[h5[normalize-space()='Connect with us']]//li[a[starts-with(@href, 'tel:')]]" position="replace"/>
-        <xpath expr="//div[h5[normalize-space()='Connect with us']]//a[@href='/website/social/facebook']" position="replace"/>
-        <xpath expr="//div[h5[normalize-space()='Connect with us']]//a[@href='/website/social/twitter']" position="replace">
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]//li[a[starts-with(@href, 'tel:')]]"
+               position="replace"/>
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]//a[@href='/website/social/facebook']"
+               position="replace"/>
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]//a[@href='/website/social/twitter']"
+               position="replace">
             <a href="/website/social/github" class="s_social_media_github" target="_blank" aria-label="GitHub">
                 <i class="fa fa-github rounded-circle shadow-sm o_editable_media"/>
             </a>
         </xpath>
-        <xpath expr="//div[h5[normalize-space()='Connect with us']]//div[hasclass('s_social_media')]" position="attributes">
+        <xpath expr="//div[h5[normalize-space()='Connect with us']]//div[hasclass('s_social_media')]"
+               position="attributes">
             <attribute name="class">s_social_media text-center o_not_editable</attribute>
+        </xpath>
+    </template>
+
+    <template id="copyright" inherit_id="website.layout">
+        <xpath expr="//div[hasclass('o_footer_copyright')]" position="replace">
+            <div class="o_footer_copyright" data-name="Copyright">
+                <div class="container py-3">
+                    <div class="row">
+                        <div class="col-sm text-center text-sm-start text-muted">
+                            <span>Copyright &amp;copy; lightsystem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="homepage" inherit_id="website.homepage" name="lightsystem Home">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="oe_structure">
+                <section class="s_hero text-white"
+                         style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/lightsystem_website/static/src/img/top_banner.png'); background-size: cover; background-position: center;">
+                    <div class="container">
+                        <h1 class="text-white">Let’s unblock your business</h1>
+                        <div class="lead mx-auto text-white">
+                            <p>Technology should adapt to your business.</p>
+                            <p>
+                                Let us find the solutions that integrate into your daily reality, streamlining
+                                operations so you can focus on growth.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="s_text_block">
+                    <div class="container">
+                        <div class="row g-5 text-center">
+                            <div class="col-lg-4">
+                                <div class="o_develop_label mb-3">ERP</div>
+                                <h3>Tailored implementation</h3>
+                                <p class="text-muted">
+                                    Odoo is a powerful ERP system designed to be cost-effective and maximally adaptable.
+                                    We ensure your implementation is tailored to your unique business needs.
+                                </p>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="o_preview_label mb-3">Integrations</div>
+                                <h3>Automated operations</h3>
+                                <p class="text-muted">
+                                    We connect your existing tools so your data flows seamlessly, removing
+                                    inefficiencies and manual work.
+                                </p>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="o_ship_label mb-3">Strategy</div>
+                                <h3>Architectural vision</h3>
+                                <p class="text-muted">
+                                    Turning ideas into value through big-picture thinking. Leveraging custom software to
+                                    provide the agility for small/medium companies to lead and innovate in an era of
+                                    constant disruption and opportunity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="s_features bg-light">
+                    <div class="container">
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="card h-100 p-5">
+                                    <div class="o_metric mb-3">10x</div>
+                                    <h4 class="mb-3">Faster Cycles</h4>
+                                    <p class="text-muted mb-0">
+                                        Reduce your time to market with our automated
+                                        deployment pipelines and optimized workflows.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card h-100 p-5">
+                                    <div class="o_metric mb-3">99.9%</div>
+                                    <h4 class="mb-3">Uptime</h4>
+                                    <p class="text-muted mb-0">
+                                        Enterprise-grade reliability that grows with you.
+                                        Your business never sleeps, and neither do we.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card h-100 p-5">
+                                    <div class="o_metric mb-3">0</div>
+                                    <h4 class="mb-3">Config</h4>
+                                    <p class="text-muted mb-0">
+                                        Zero-configuration deployments. Just push your code
+                                        and we'll handle the rest, from SSL to CDN.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="s_text_block py-5">
+                    <div class="container text-center py-5">
+                        <h2 class="mb-4">Ready to unlock your potential?</h2>
+                        <a href="/contactus" class="btn btn-primary btn-lg px-5 rounded-pill">Start Building Now</a>
+                    </div>
+                </section>
+            </div>
         </xpath>
     </template>
 </odoo>
