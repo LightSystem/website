@@ -156,8 +156,8 @@
 
                 <section class="s_text_block py-5">
                     <div class="container text-center py-5">
-                        <h2 class="mb-4">Ready to unlock your potential?</h2>
-                        <a href="/contactus" class="btn btn-primary btn-lg px-5 rounded-pill">Start Building Now</a>
+                        <h2 class="mb-4">Ready to talk?</h2>
+                        <a href="/contactus" class="btn btn-primary btn-lg px-5 rounded-pill">Contact Us</a>
                     </div>
                 </section>
             </div>
